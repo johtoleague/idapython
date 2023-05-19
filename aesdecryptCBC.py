@@ -13,7 +13,8 @@ ciphertext = binascii.unhexlify(raw.replace(' ',''))
 key = b'ijklmnopqrstuvwx'
 
 # The IV should be unique and secure, but for this example, I'm using a constant one.
-iv=binascii.unhexlify('d63b4ad6f6d9ac9b608ec8b42734b1ca')
+iv=binascii.unhexlify('00000000000000000000000000000000')
+#iv=binascii.unhexlify('d63b4ad6f6d9ac9b608ec8b42734b1ca')
 
 
 obj = AES.new(key, AES.MODE_CBC, iv) 
