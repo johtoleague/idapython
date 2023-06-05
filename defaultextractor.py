@@ -63,4 +63,15 @@ def rc4crypt(data, key):
 # this is the RC4 decrtion function
 
 
-out = rc4crypt(data, key)
+config = rc4crypt(config_data, key)
+build_id = config.split(b'\x00')[0]
+c2_string = b''
+for s in config.split(b'\x00')[1:]:
+    if s != b'':
+        c2_string = s
+        break
+c2_list = c2_string.split(b'|')
+print("BUILD: %s" % build_id)
+for c2 in c2_list:
+    if c2 != b'':
+        print("C2: %s" % c2)
